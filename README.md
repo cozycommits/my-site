@@ -12,16 +12,13 @@ Next.js + Supabase 로그인이 연결된 반응형 사이트입니다. 폰 브�
 
 ## 배포 (폰 브라우저로 가능)
 
-1. Vercel에서 **Add New → Project → 이 저장소 Import → Deploy**
-2. 프로젝트 **Storage** 탭 → **Supabase** 생성 후 이 프로젝트에 연결
-   - `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`가 자동 설정됩니다.
-3. **Deployments → 최신 배포 ⋯ → Redeploy**
-4. Supabase 대시보드 **Authentication → URL Configuration**
-   - **Site URL**: `https://<내-프로젝트>.vercel.app`
-   - **Redirect URLs**: `https://<내-프로젝트>.vercel.app/**`
+Supabase 프로젝트(`my-site`, 서울 리전)와 표·보안 규칙은 이미 만들어져 있고, 공개 연결 정보는 `lib/supabase/env.ts`에 들어 있습니다.
 
-5. Supabase 대시보드 **SQL Editor → New query**에 [`supabase/schema.sql`](supabase/schema.sql) 전체를 붙여넣고 **Run**
-   - 방명록·커피챗 표와 보안 규칙(RLS)이 만들어집니다. 여러 번 실행해도 안전합니다.
+1. Vercel에서 **Add New → Project → 이 저장소 Import → Deploy**
+2. 배포 주소를 Supabase 대시보드 **Authentication → URL Configuration → Site URL**에 넣기
+
+- 회원가입은 메일 인증 없이 바로 로그인되도록 설정했습니다(Supabase 기본 메일 발송 한도 회피).
+- 표를 처음부터 다시 만들 때는 SQL Editor에서 [`supabase/schema.sql`](supabase/schema.sql)을 실행합니다. 여러 번 실행해도 안전합니다.
 
 ## 커피챗 신청 확인하기
 
