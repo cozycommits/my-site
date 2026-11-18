@@ -26,7 +26,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <Link href="/" className="logo">
             My Site
           </Link>
-          <nav>
+          <nav className="nav">
+            <Link href="/guestbook">방명록</Link>
+            <Link href="/coffee-chat">커피챗</Link>
             {user ? (
               <Link href="/mypage" className="btn btn-small">
                 내 정보
